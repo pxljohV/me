@@ -1,0 +1,67 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: rgb(212, 212, 212);
+  }
+}
+
+.title{
+  top:80%;
+  left:20px;
+ 
+}
+
+.scroll-left {
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  background: rgb(254, 218, 15);
+  color: rgb(129, 84, 0);
+  border: 1px solid orange;
+}
+
+
+
+@keyframes scrollLeft{
+ 
+ 0%{
+  transform:translateX(100%);
+ }
+100%{
+  transform: translateX(20%);
+}
+20%{
+  transfom:translateX(100%);
+}
+  
+}
+.scrollText {
+  color: white;
+  position: absolute;
+  margin-bottom: 30px;
+  border: 5px;
+  
+  animation-name: scrollLeft;
+  animation-duration: 20s ;
+  transition-duration: 3s;
+}
