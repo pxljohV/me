@@ -1,5 +1,7 @@
 import '../styles/globals.css'
 import '../styles/tachyons.css'
+
+
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }

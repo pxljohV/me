@@ -1,17 +1,21 @@
 import Image from 'next/image'
+import Top from '../Components/Top'
 
 export default function Post(data) {
-    
-    console.log(data)
+
     const post = data.posts;
-    const cover = data.posts.featuredImage.node.sourceUrl;//cover
-   
-    return(
+    const img = data.posts.featuredImage.node.sourceUrl;//cover
+
+    return (
         <div>
-            <h1>POSTS:</h1>
-            <h2>{post.title}</h2>
-            <Image src={cover} width={200} height={200} alt=""/>
-            <article dangerouslySetInnerHTML={{__html: post.content}}></article>
+            <Top />
+
+            <div className='relative mw8 black center'>
+
+                <h2>{post.title}</h2>
+                <Image src={img} width={120} height={50} objectFit="cover" layout="responsive" alt="" />
+                <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
+            </div>
         </div>
     )
 }
@@ -72,13 +76,13 @@ export async function getStaticPaths() {
     })
     const json = await res.json();
     const posts = await json.data.posts.nodes;
-    
+
     //array of paths 
-    const paths= posts.map((post)=>({
-        params:{slug:post.slug}
+    const paths = posts.map((post) => ({
+        params: { slug: post.slug }
     }))
     //returns data from paths
-    return {paths,fallback:false}
+    return { paths, fallback: false }
 
 }
 
