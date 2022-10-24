@@ -53,6 +53,7 @@ export async function getStaticProps(ctx) {
         props: {
             posts: json.data.post,
         },
+        revalidate: 10
     }
 
 }
@@ -82,7 +83,7 @@ export async function getStaticPaths() {
         params: { slug: post.slug }
     }))
     //returns data from paths
-    return { paths, fallback: false }
+    return { paths, fallback: 'blocking' }
 
 }
 
