@@ -83,9 +83,9 @@ export default function Home({ posts, cat }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
-  const res = await fetch('https://graciahernandez.com/graphql', {
+  const res = await fetch(process.env.ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -119,7 +119,7 @@ export async function getStaticProps() {
   })
 
 
-  const cat = await fetch('https://graciahernandez.com/graphql', {
+  const cat = await fetch(process.env.ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
