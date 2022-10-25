@@ -22,7 +22,7 @@ export default function Post(data) {
 
 export async function getStaticProps(ctx) {
 
-    const res = await fetch(process.env.ENDPOINT, {
+    const res = await fetch('https://graciahernandez.com/graphql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -59,7 +59,7 @@ export async function getStaticProps(ctx) {
 }
 
 export async function getStaticPaths() {
-    const res = await fetch(process.env.ENDPOINT, {
+    const res = await fetch('https://graciahernandez.com/graphql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
