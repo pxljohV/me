@@ -20,9 +20,9 @@ export default function Post(data) {
     )
 }
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
 
-    const res = await fetch('https://graciahernandez.com/graphql', {
+    const res = await fetch(process.env.ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
